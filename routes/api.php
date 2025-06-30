@@ -12,10 +12,11 @@ use Illuminate\Support\Facades\Route;
 // register
 Route::post('/user/register', [AuthController::class, 'register']);
 // login
-Route::post('/user/login', [AuthController::class, 'login']);
+Route::post('/user/login', [AuthController::class, 'login'])->name('login');
 
 Route::group(['middleware' => ['auth:sanctum']], function(){
-    Route::get('/user/logout/{id}', [AuthController::class, 'logout']);
+
+    Route::get('/user/logout', [AuthController::class, 'logout']);
 
     Route::get('/user/tasks',[TasksController::class,'show']);
 
