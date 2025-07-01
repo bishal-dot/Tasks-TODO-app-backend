@@ -30,6 +30,8 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 
     Route::get('/task/complete/{id}',[TasksController::class,'complete']);
 
+    Route::get('/task/favorite/{id}',[TasksController::class,'favorite']);
+
 });
 
 
